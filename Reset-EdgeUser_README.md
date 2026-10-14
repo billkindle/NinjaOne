@@ -228,5 +228,3 @@ Add two variables using the **Add** dropdown next to "Script variables."
 **Leave the Parameters field below empty.** Anything you put there is passed as `-UserName` or `-Mode` and overrides the variables.
 
 The variable name matters more than the display name. NinjaOne generates it from the Name you type, and the script reads exactly `$env:targetUser` and `$env:resetMode`. If NinjaOne produces something different (for example `targetuser` or `target_user`), you have two options: change the name in NinjaOne to match, or edit the two defaults in the script's `param()` block to match what NinjaOne generated. Casing doesn't matter on Windows, but underscores and spelling do.
-
-The rest of your screenshot looks right: PowerShell, Windows, All architectures, and Run as System.
