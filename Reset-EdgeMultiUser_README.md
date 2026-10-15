@@ -9,7 +9,7 @@ Resets Microsoft Edge user data for **every user profile on a device** in one ru
 The script enumerates every non-system profile under `C:\Users` that has an Edge `User Data` folder. It then resets each one independently in one of two modes:
 
 | Mode | What moves | What the user notices |
-|---|---|---|
+| --- | --- | --- |
 | **Light** (default) | `Local State`, plus `Preferences` and `Secure Preferences` from `Default` and each `Profile *` folder, into `EdgeReset-Light.bak-<timestamp>` | Startup pages, new tab and search engine reset; extensions may need re-enabling. Bookmarks, passwords and history stay. |
 | **Full** | The whole `User Data` folder, renamed to `User Data.bak-<timestamp>` | First-run Edge. Unsynced bookmarks, passwords, history, cookies/sessions, extensions and site permissions appear gone until restored or re-synced. |
 
@@ -38,7 +38,7 @@ With FSLogix or User Profile Disks, signed-out users show as `SKIPPED: No Edge d
 Script settings: Name **Reset-EdgeMultiUser**, Language **PowerShell**, Operating System **Windows**, Architecture **All**, Run as **System**. Leave the **Parameters** field empty, because anything entered there overrides the variables.
 
 | Name | Type | Variable name | Default | Purpose |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Reset Mode | Drop-down: `Light`, `Full` | `resetMode` | Light | Applies to every profile in the run |
 | Preview Only | Checkbox | `previewOnly` | Checked | Report only; no changes |
 | Include Signed-In Users | Checkbox | `includeSignedInUsers` | Unchecked | Also reset users with active or disconnected sessions |
@@ -86,7 +86,7 @@ Result: SUCCESS (2 profile(s) reset, Light)
 ```
 
 | Status / output | Meaning and action |
-|---|---|
+| --- | --- |
 | `RESET` | Reset completed; the backup path follows. |
 | `WOULD RESET` | Preview only. Shows the mode and how many Edge processes would be stopped. |
 | `SKIPPED: Excluded` | Listed in Exclude Users. |
@@ -161,7 +161,7 @@ To restore individual files after a Full sweep (for example, `Bookmarks` for one
 
 ## Change log
 
-**October 15, 2026 — initial version**
+### October 15, 2026 — initial version
 
 - Derived from Reset-EdgeUser.ps1 (NinjaOne version). It sweeps all non-system profiles instead of taking a username.
 - Adds Preview Only (default on), Include Signed-In Users (default off) and Exclude Users.
